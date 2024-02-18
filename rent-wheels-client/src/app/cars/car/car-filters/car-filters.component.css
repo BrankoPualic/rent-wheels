@@ -1,0 +1,120 @@
+#car-filters {
+  width: 100%;
+  min-height: 70vh;
+  position: relative;
+}
+#filter-img {
+  background-image: url(../../../../assets/img/cars-cover.jpg);
+  width: 100%;
+  min-height: 70vh;
+  background-position: center;
+  background-size: cover;
+  filter: brightness(50%);
+}
+#filters {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 70%;
+  background-color: var(--white);
+}
+#filters h2 {
+  color: var(--red);
+  font-size: 2.3em;
+  text-align: center;
+  margin: 2rem 0 1rem;
+}
+#filters form {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 1rem 1rem;
+}
+#filters form div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0.5rem 1rem 0.5rem 0;
+}
+#loc {
+  justify-content: center !important;
+}
+#prices {
+  flex-direction: row !important;
+}
+#filters form div input,
+#filters form div select {
+  padding: 0.3rem;
+  font-size: 1em;
+  background-color: transparent;
+  border: 1px solid var(--dark-white);
+  /* border-radius: 5px; */
+  width: 19rem;
+}
+#filters form div select {
+  cursor: pointer;
+  color: var(--black);
+}
+#prices {
+  width: 10rem;
+}
+#prices input {
+  width: 5rem !important;
+}
+#filters form input[type="checkbox"] {
+  cursor: pointer;
+  width: 17px !important;
+  height: 17px !important;
+  margin: 0 auto 0.75rem;
+}
+#trnas {
+  width: 10rem;
+  margin: 0 1rem !important;
+  justify-content: center !important;
+}
+#trans > label {
+  margin-bottom: 0.5rem;
+}
+.trans {
+  display: flex;
+  flex-direction: row !important;
+  justify-content: space-between;
+  margin: 0 !important;
+}
+.trans input {
+  width: 15px !important;
+  height: 15px !important;
+}
+#filterSearch {
+  margin-left: 3rem !important;
+  justify-content: flex-end !important;
+  align-items: center;
+}
+#filterSearch input[type="submit"] {
+  width: 10rem !important;
+  background-color: var(--red) !important;
+  cursor: pointer;
+  color: var(--white);
+}
+
+@media (max-width: 769px) {
+  #filters {
+    width: 90%;
+  }
+  #car-filters {
+    height: 100vh;
+  }
+  #filter-img {
+    height: 100vh;
+  }
+}
+@media (max-width: 426px) {
+  #filters form div input,
+  #filters form div select {
+    width: 15rem;
+  }
+}

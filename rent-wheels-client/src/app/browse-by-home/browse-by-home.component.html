@@ -1,0 +1,73 @@
+<section id="types">
+  <h2>Find Your Drive</h2>
+  <p>
+    Explore our wide range of car types to find the perfect vehicle for your
+    needs.
+  </p>
+  <div class="scroller">
+    <h3>Browse by type</h3>
+    <div class="scroll">
+      <i
+        class="fa-solid fa-chevron-left"
+        (click)="scrollLeftType()"
+        #typeL
+        id="typeL"
+      ></i>
+      <i
+        class="fa-solid fa-chevron-right"
+        (click)="scrollRightType()"
+        #typeR
+      ></i>
+    </div>
+  </div>
+
+  <div id="car-types" #types>
+    <div
+      class="car-type"
+      *ngFor="let type of carTypes"
+      (click)="typeSelected(type.type_id)"
+    >
+      <div class="type-img">
+        <img
+          src="../../assets/img/type/{{ type.car_type_img }}"
+          alt="{{ type.type_name }}"
+        />
+      </div>
+      <div class="heading">
+        <h4>{{ type.type_name }}</h4>
+      </div>
+    </div>
+  </div>
+
+  <!-- Locations -->
+  <div class="scroller">
+    <h3>Browse by location</h3>
+    <div class="scroll">
+      <i
+        class="fa-solid fa-chevron-left"
+        (click)="scrollLeftLoc()"
+        #locL
+        id="locL"
+      ></i>
+      <i class="fa-solid fa-chevron-right" (click)="scrollRightLoc()" #locR></i>
+    </div>
+  </div>
+
+  <div id="locations" #locations>
+    <div
+      class="car-type-loc"
+      *ngFor="let loc of carLocations"
+      (click)="locationSelected(loc.location_id)"
+    >
+      <div class="type-img">
+        <img
+          src="../../assets/img/locations/{{ loc.location_img }}"
+          alt="{{ loc.city }}"
+        />
+      </div>
+      <div class="heading">
+        <h4>{{ loc.city }}</h4>
+      </div>
+    </div>
+  </div>
+</section>

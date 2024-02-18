@@ -1,0 +1,11 @@
+app-header {
+  position: relative;
+  z-index: 1000;
+}
+
+#wrapper {
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+  top: 0;
+}

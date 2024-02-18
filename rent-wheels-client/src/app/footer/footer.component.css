@@ -1,0 +1,91 @@
+footer {
+  background-color: var(--black);
+  display: flex;
+  flex-direction: column;
+}
+
+#footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+#footerLogo {
+  height: 20rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+#footerLogo img {
+  height: 20rem;
+}
+.links h4,
+#subs h4 {
+  font-size: 1.4em;
+  font-weight: 400;
+  color: var(--red);
+}
+.links ul li a {
+  color: var(--white);
+  font-size: 1.1em;
+  text-decoration: underline;
+}
+#subs p {
+  font-size: 1.2em;
+  margin: 0.5rem 0 2rem;
+  color: var(--white);
+}
+#subEmail {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+#subEmail > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#email {
+  width: 70%;
+  padding: 0.5rem;
+  font-size: 1.1em;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--white);
+  outline: none;
+  color: var(--white);
+}
+input[type="submit"] {
+  background-color: var(--red);
+  border: 1px solid var(--red);
+  color: var(--white);
+  width: 25%;
+  cursor: pointer;
+}
+#copy {
+  text-align: center;
+  color: var(--white);
+  border-top: 1px solid var(--white);
+  padding: 0.5rem 0;
+}
+form > span {
+  color: var(--red);
+  margin-top: 0.25rem;
+}
+.succMessage {
+  color: green !important;
+}
+
+@media (max-width: 769px) {
+  #footer {
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+  #footerLogo {
+    display: none;
+  }
+  #footer .links {
+    text-align: center;
+  }
+}

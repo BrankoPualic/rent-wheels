@@ -1,0 +1,62 @@
+<section id="cover">
+  <div id="red-div"></div>
+  <div id="text">
+    <h1>Discover the Perfect Ride</h1>
+    <h3>Rent a Car and Embark on an Unforgettable Journey with Rent Wheels</h3>
+    <p>
+      Experience the ultimate freedom and flexibility of the open road with Rent
+      Wheels. Choose from our wide selection of well-maintained vehicles, enjoy
+      competitive prices, and receive exceptional service from our dedicated
+      team. Start your adventure today and make memories that will last a
+      lifetime!
+    </p>
+    <div id="cover-links">
+      <a href="#types">Browse</a>
+      <a (click)="!isLoggedIn() ? openRegisterModal() : navigate()">Sign up</a>
+    </div>
+  </div>
+  <div id="car-cover">
+    <img src="../../assets/img/audi-q5-1.png" alt="Audi a5 image" />
+  </div>
+</section>
+<app-browse-by-home></app-browse-by-home>
+<section id="green-initiatives">
+  <div id="green-txt">
+    <h2>Our Greenhouse Gas Reduction Efforts</h2>
+    <p>
+      We are committed to reducing greenhouse gas emissions and promoting
+      environmental sustainability. Through our initiatives and practices, we
+      strive to minimize our carbon footprint and contribute to a greener
+      future.
+    </p>
+    <a routerLink="cars">Explore our options</a>
+  </div>
+  <div id="green-img">
+    <img
+      src="../../assets/img/green-gas.jpg"
+      alt="Car parked near the road on mountain."
+    />
+  </div>
+</section>
+<section id="event">
+  <h2>Hosting Classic Old School Charger Events</h2>
+  <p>
+    We take pride in hosting classic old school charger events, bringing
+    together car enthusiasts and providing a unique experience. Whether you're
+    organizing an event or looking to attend, we offer a range of services and
+    classic car models to make your event memorable.
+  </p>
+  <div id="event-content">
+    <div id="event-txt">
+      <h3>In Cooperation with Dodge Charger</h3>
+      <p>
+        We proudly partner with Dodge Charger to host exciting events that
+        celebrate this iconic vehicle. Join us for exclusive experiences and
+        connect with fellow enthusiasts.
+      </p>
+      <a href="">Read more</a>
+    </div>
+    <div id="event-img"></div>
+  </div>
+</section>
+<app-reviews></app-reviews>

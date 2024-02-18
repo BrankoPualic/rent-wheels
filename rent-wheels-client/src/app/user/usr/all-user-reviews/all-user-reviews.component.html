@@ -1,0 +1,30 @@
+<div id="user-reviews">
+  <h3>Your Reviews</h3>
+  <a class="go-back" (click)="goBack()"
+    >Back <i class="fa-solid fa-arrow-right"></i
+  ></a>
+  <div class="user-rev" *ngFor="let review of reviews; let i = index">
+    <div class="user-rev-car">
+      <div class="first-group">
+        <p>{{ review.heading }}</p>
+        <div class="user-rev-rating">
+          <ng-container *ngFor="let review of getStarsArray(iterations[i])">
+            <i class="fa-solid fa-star"></i>
+          </ng-container>
+        </div>
+        <div class="user-review-text">
+          <p>{{ review.review }}</p>
+        </div>
+      </div>
+      <p class="posted">Posted {{ transformDate(review.rating_date) }}</p>
+    </div>
+    <div class="user-rev-car-img">
+      <div class="user-rev-img">
+        <img
+          src="../../../../assets/img/cars/{{ review.image_src }}"
+          [alt]="review.image_alt"
+        />
+      </div>
+    </div>
+  </div>
+</div>

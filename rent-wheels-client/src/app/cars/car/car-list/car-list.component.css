@@ -1,0 +1,10 @@
+#car-list-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+#car-list-section h3 {
+  color: var(--red);
+  font-size: 2em;
+  margin: 5rem 0;
+}

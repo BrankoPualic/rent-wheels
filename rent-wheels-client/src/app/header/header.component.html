@@ -1,0 +1,45 @@
+<header [ngClass]="{ 'other-pages': extendedUrl !== '' }">
+  <div id="logo">
+    <a routerLink="">
+      <img
+        src="../../assets/img/{{ pageLogo }}"
+        alt="Logo of the page"
+        id="logo-img"
+      />
+    </a>
+  </div>
+  <nav>
+    <ul>
+      <li [ngClass]="{ 'active-page': extendedUrl === '' }">
+        <a routerLink="">Home</a>
+      </li>
+      <li routerLinkActive="active-page"><a routerLink="cars">Cars</a></li>
+      <li routerLinkActive="active-page">
+        <a routerLink="contact">Contact</a>
+      </li>
+    </ul>
+  </nav>
+  <div id="account">
+    <i class="fa-solid fa-bars" (click)="openMenu()"></i
+    ><span class="show">Menu</span>
+    <ng-container>
+      <app-profile-dropdown></app-profile-dropdown>
+    </ng-container>
+  </div>
+</header>
+<div id="responsive-menu" #menu>
+  <i class="fa-solid fa-xmark" (click)="closeMenu()"></i>
+  <nav>
+    <ul>
+      <li [ngClass]="{ 'active-page': extendedUrl === '' }">
+        <a routerLink="" (click)="closeMenu()">Home</a>
+      </li>
+      <li routerLinkActive="active-page">
+        <a routerLink="cars" (click)="closeMenu()">Cars</a>
+      </li>
+      <li routerLinkActive="active-page">
+        <a routerLink="contact" (click)="closeMenu()">Contact</a>
+      </li>
+    </ul>
+  </nav>
+</div>

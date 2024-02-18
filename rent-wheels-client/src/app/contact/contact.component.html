@@ -1,0 +1,78 @@
+<section id="contact">
+  <div id="heading">
+    <h3>Contact us</h3>
+    <p>
+      If you have any questions or need assistance, please feel free to reach
+      out to us using the contact form below.
+    </p>
+  </div>
+  <div id="map">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1269178.3255580666!2d10.582002260468366!3d50.961296357696625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ssr!2srs!4v1686248515562!5m2!1ssr!2srs"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+  <div id="contact-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div>
+        <label>Username</label>
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          formControlName="username"
+        />
+        <span
+          *ngIf="!form.get('username')?.valid && form.get('username')?.touched"
+        >
+          Username is invalid! Exemple: Bane
+        </span>
+      </div>
+      <div>
+        <label>Email address</label>
+        <input
+          type="email"
+          name="email"
+          placeholder="Your email address"
+          formControlName="email"
+        />
+        <span *ngIf="!form.get('email')?.valid && form.get('email')?.touched">
+          Your email is invalid! Please use the full email format. For example:
+          test@test.com
+        </span>
+      </div>
+      <div>
+        <label>Message</label>
+        <textarea
+          name="message"
+          id="message"
+          cols="30"
+          rows="10"
+          (ngModelChange)="onKeyPress()"
+          placeholder="Your message..."
+          maxlength="500"
+          formControlName="message"
+        ></textarea>
+        <span
+          *ngIf="!form.get('message')?.valid && form.get('message')?.touched"
+        >
+          Please enter your message!
+        </span>
+        <span id="counter">Characters {{ counter }} of {{ maxLength }}</span>
+      </div>
+      <div>
+        <input
+          type="submit"
+          value="Send"
+          name="submitBtn"
+          [disabled]="!form.valid"
+        />
+      </div>
+      <span class="succMessage" #succ></span>
+      <span *ngIf="!form.valid && form.touched">Please enter all fields!</span>
+    </form>
+  </div>
+</section>

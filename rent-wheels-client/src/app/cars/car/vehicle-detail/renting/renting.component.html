@@ -1,0 +1,46 @@
+<div class="modalInfo">
+  <i class="fa-solid fa-circle-xmark" (click)="rentingModalClose()"></i>
+  <h3>Rent Your Vehicle</h3>
+  <p>Rent your vehicle and enjoy the freedom of the open road.</p>
+  <form [formGroup]="renting" (ngSubmit)="onRent()">
+    <div>
+      <label>From</label>
+      <input
+        type="datetime-local"
+        name="date_from"
+        formControlName="date_from"
+      />
+    </div>
+    <div>
+      <label>To</label>
+      <input type="datetime-local" name="date_to" formControlName="date_to" />
+    </div>
+    <span *ngIf="renting.hasError('dateInvalid') && renting.touched">
+      Invalid date selection. Please ensure the end date is not earlier than the
+      start date.
+    </span>
+    <span
+      *ngIf="
+        renting.get('date_to')?.hasError('invalidDuration') && renting.touched
+      "
+      >Invalid date selection. Renting must last at least 5 hours and can't be
+      longer than 7 days!</span
+    >
+    <p>
+      Total cost: <span>{{ totalCost }} &euro;.</span>
+    </p>
+    <input
+      type="button"
+      value="Proceed"
+      [disabled]="!renting.valid"
+      (click)="validate()"
+      *ngIf="!showValidation"
+    />
+    <span *ngIf="!renting.valid && renting.touched">Form is invalid!</span>
+    <div *ngIf="showValidation" class="validation">
+      <input type="submit" value="Submit" />
+      <input type="button" value="Cancel" (click)="onCancel()" />
+    </div>
+  </form>
+</div>
+<div class="backdrop"></div>

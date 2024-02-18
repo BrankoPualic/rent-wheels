@@ -1,0 +1,114 @@
+<section id="car-filters">
+  <div id="filters">
+    <h2>Find Your Car</h2>
+    <form [formGroup]="filterForm" (ngSubmit)="onSearchClick()">
+      <div>
+        <label>Searach</label>
+        <input
+          type="text"
+          name="search"
+          placeholder="Search cars by name..."
+          formControlName="search"
+        />
+      </div>
+      <div>
+        <label>Brand</label>
+        <select name="brand" formControlName="brand">
+          <option value="0">Select</option>
+          <option
+            [value]="brand.brand_id"
+            *ngFor="let brand of dropDownLists[2]"
+          >
+            {{ brand.brand_name }}
+          </option>
+        </select>
+      </div>
+      <div>
+        <label>Type</label>
+        <select name="type" formControlName="type">
+          <option value="0">Select</option>
+          <option [value]="type.type_id" *ngFor="let type of dropDownLists[1]">
+            {{ type.type_name }}
+          </option>
+        </select>
+      </div>
+      <div>
+        <label>Year</label>
+        <select name="year" formControlName="year">
+          <option value="0">Select</option>
+          <option [value]="year.year" *ngFor="let year of dropDownLists[3]">
+            {{ year.year }}
+          </option>
+        </select>
+      </div>
+      <div id="loc">
+        <label>Location</label>
+        <select name="location" formControlName="location">
+          <option value="0">Select</option>
+          <option
+            [value]="location.location_id"
+            *ngFor="let location of dropDownLists[0]"
+          >
+            {{ location.city }}
+          </option>
+        </select>
+      </div>
+      <div id="prices" formGroupName="price">
+        <div>
+          <label>Min Price</label>
+          <input
+            type="text"
+            name="minPrice"
+            value="{{ minAvailablePrice }}"
+            formControlName="minPrice"
+            (blur)="setValueMin()"
+          />
+        </div>
+        <div>
+          <label>Max Price</label>
+          <input
+            type="text"
+            name="maxPrice"
+            value="{{ maxAvailablePrice }}"
+            formControlName="maxPrice"
+            (blur)="setValueMax()"
+          />
+        </div>
+      </div>
+      <div id="trnas">
+        <label>Transmission</label>
+        <div class="trans">
+          <label>Manual</label>
+          <input
+            type="radio"
+            name="transmission"
+            formControlName="transmission"
+            value="2"
+          />
+        </div>
+        <div class="trans">
+          <label>Automatic</label>
+          <input
+            type="radio"
+            name="transmission"
+            formControlName="transmission"
+            value="1"
+          />
+        </div>
+      </div>
+      <div>
+        <label>New car</label>
+        <input type="checkbox" name="newCar" formControlName="newCar" />
+      </div>
+      <div>
+        <label>Recommended car</label>
+        <input type="checkbox" name="recommendedCar" formControlName="recCar" />
+      </div>
+      <div id="filterSearch">
+        <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+        <input type="submit" value="Search" />
+      </div>
+    </form>
+  </div>
+  <div id="filter-img"></div>
+</section>

@@ -1,0 +1,29 @@
+<div class="profile-dropdown">
+  <div (click)="toggleDropdown()" class="profile-button">
+    <i class="fa-solid fa-bars"></i>
+    <i class="fa-regular fa-circle-user"></i>
+  </div>
+  <div class="dropdown-content" *ngIf="showDropdown">
+    <div class="user-cred" *ngIf="isLoggedIn()">
+      <div class="user-cred-img">
+        <img
+          src="../../assets/img/users/{{ user.image_src }}"
+          [alt]="user.image_alt"
+        />
+      </div>
+      <span>{{ user.name }}</span>
+    </div>
+    <div routerLink="user" *ngIf="isLoggedIn()">
+      <span>Profile</span>
+    </div>
+    <div (click)="logout()" *ngIf="isLoggedIn()">
+      <span>Logout</span>
+    </div>
+    <div (click)="openRegisterModal()" *ngIf="!isLoggedIn()">
+      <span>Sign up</span>
+    </div>
+    <div (click)="openLoginModal()" *ngIf="!isLoggedIn()">
+      <span>Log in</span>
+    </div>
+  </div>
+</div>

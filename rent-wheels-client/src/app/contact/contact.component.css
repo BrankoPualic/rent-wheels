@@ -1,0 +1,100 @@
+#contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 175px;
+  margin-bottom: 5rem;
+}
+#heading {
+  text-align: center;
+}
+#heading h3 {
+  font-size: 2em;
+  font-weight: 500;
+  color: var(--red);
+}
+#heading p {
+  font-size: 1.2em;
+  margin-top: 0.5rem;
+}
+#map {
+  width: 80%;
+  height: 25rem;
+  margin: 2rem 0;
+}
+#map iframe {
+  width: 100%;
+  height: 100%;
+}
+#contact-form {
+  width: 48%;
+}
+form {
+  width: 100%;
+}
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  margin: 0.5rem auto;
+  background-color: transparent;
+  border: 1px solid var(--black);
+  border-radius: 5px;
+  outline: none;
+  padding: 10px;
+  font-size: 1em;
+}
+input[type="submit"] {
+  width: 100px;
+  margin: 0 auto;
+  cursor: pointer;
+  border: 1px solid var(--red);
+  background-color: var(--red);
+  color: var(--white);
+  padding: 0.5rem 0.75rem;
+  font-size: 1.1em;
+}
+input[type="submit"]:hover {
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.8);
+}
+input[type="submit"]:disabled {
+  background-color: var(--black);
+  border: 1px solid var(--black);
+  cursor: default;
+}
+form > div {
+  display: flex;
+  flex-direction: column;
+}
+form > div > span,
+form > span {
+  width: 100%;
+  margin: 0 auto 0.5rem;
+  color: var(--red);
+}
+form > span {
+  display: block;
+  text-align: center;
+  margin: 1rem auto;
+}
+span#counter {
+  color: var(--black);
+}
+#counter {
+  text-align: end;
+  width: 100%;
+  margin: 0.3rem auto;
+}
+span.succMessage {
+  color: green !important;
+}
+
+@media (max-width: 769px) {
+  #contact-form {
+    width: 90%;
+  }
+  #map {
+    width: 90%;
+  }
+}

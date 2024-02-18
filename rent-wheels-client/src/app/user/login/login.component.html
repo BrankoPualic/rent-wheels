@@ -1,0 +1,38 @@
+<div class="modalInfo">
+  <i class="fa-solid fa-circle-xmark" (click)="loginModalClose()"></i>
+  <h3>Login</h3>
+  <form [formGroup]="form" (ngSubmit)="onLoginSubmit()">
+    <div>
+      <label>Email address</label>
+      <input
+        type="email"
+        name="email"
+        placeholder="Your email address"
+        formControlName="email"
+      />
+      <span *ngIf="!form.get('email')?.valid && form.get('email')?.touched">
+        Your email is invalid! Please use the full email format. For example:
+        test@test.com
+      </span>
+    </div>
+    <div>
+      <label>Password</label>
+      <input
+        type="password"
+        name="password"
+        placeholder="Your password"
+        formControlName="password"
+      />
+      <span
+        *ngIf="!form.get('password')?.valid && form.get('password')?.touched"
+      >
+        Your password is invalid! Password must be at least 8 charactes long and
+        needs to have at least one uppercase letter and one number.
+      </span>
+    </div>
+    <input type="submit" value="Login" [disabled]="!form.valid" />
+    <span #err></span>
+    <span class="succ" #succ></span>
+  </form>
+</div>
+<div class="backdrop"></div>

@@ -1,0 +1,33 @@
+<div id="latest">
+  <h3>Latest Rental</h3>
+  <div id="no-rentals" *ngIf="!thereIsRental">
+    You did not rent anything yet.
+  </div>
+  <div id="all-latest-details">
+    <div id="latest-rental-car" *ngIf="thereIsRental">
+      <div id="latest-img">
+        <img
+          src="../../../../assets/img/cars/{{ rental.image_src }}"
+          [alt]="rental.image_alt"
+        />
+      </div>
+    </div>
+    <div id="latest-rental-infos" *ngIf="thereIsRental">
+      <p>{{ rental.heading }}</p>
+      <p>Location: {{ rental.city }}</p>
+      <p>Start: {{ start_date }}</p>
+      <p>End: {{ end_date }}</p>
+      <p>Total cost: {{ rental.total_cost }} &euro;</p>
+      <p>
+        Status:
+        <span
+          [ngClass]="{
+            rentalActive: status === 'active',
+            rentalNotActive: status === 'not-active'
+          }"
+          >{{ status | uppercase }}</span
+        >
+      </p>
+    </div>
+  </div>
+</div>

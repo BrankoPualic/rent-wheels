@@ -1,0 +1,10 @@
+<section id="car-list-section">
+  <h3 *ngIf="noCarsFiltered && !fetching">
+    There are no cars for this type of filtering.
+  </h3>
+  <ng-container *ngIf="!noCarsFiltered && !fetching">
+    <app-vehicle></app-vehicle>
+  </ng-container>
+  <div class="custom-loader" *ngIf="fetching"></div>
+  <div class="white-backdrop" *ngIf="fetching"></div>
+</section>

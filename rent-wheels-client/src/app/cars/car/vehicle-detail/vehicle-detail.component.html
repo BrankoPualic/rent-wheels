@@ -1,0 +1,42 @@
+<section id="vehicle-detail" *ngIf="selectedCar">
+  <div id="car-details">
+    <app-vehicle-slider [slides]="selectedCarImages"></app-vehicle-slider>
+    <div id="car-details-spec">
+      <h3>{{ selectedCar.heading }}</h3>
+      <div>
+        <p>Location: {{ selectedCar.city }}</p>
+        <p>Brand: {{ selectedCar.brand_name }}</p>
+        <p>Type: {{ selectedCar.type_name }}</p>
+        <p>Transmission: {{ selectedCar.transmission_type }}</p>
+        <p>Year: {{ selectedCar.year }}</p>
+        <p>Price: {{ selectedCar.price }} &euro; per hour</p>
+      </div>
+      <p class="inf">
+        "Renting requires you to set 'from' date and 'to' date and we will
+        reserve one for you."
+      </p>
+      <a
+        [ngClass]="{ disabled_link: !isLoggedIn() }"
+        (click)="isLoggedIn() ? openRentingModal() : null"
+        >Rent</a
+      >
+      <p *ngIf="!isLoggedIn()">
+        <span class="red">**</span> You must log in to be able to rent a
+        vehicle!
+      </p>
+    </div>
+  </div>
+  <div id="car-details-desc">
+    <h3>Description</h3>
+    <p [innerHTML]="selectedCar.description"></p>
+  </div>
+  <app-suggested-cars></app-suggested-cars>
+  <app-car-ratings [carId]="selectedCar.car_id"></app-car-ratings>
+</section>
+<ng-container *ngIf="rentingModalVisible">
+  <app-renting
+    (closeRentingModalEmitter)="modalClose($event)"
+    [carId]="selectedCar.car_id"
+    [carPrice]="selectedCar.price"
+  ></app-renting>
+</ng-container>

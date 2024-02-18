@@ -1,0 +1,65 @@
+#user-reviews {
+  width: 100%;
+  margin-top: 175px;
+  margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+#user-reviews h3 {
+  font-weight: 500;
+  font-size: 1.8em;
+  color: var(--red);
+}
+.user-rev {
+  width: 70%;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--black);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.user-rev-car {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.first-group > p {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+.user-rev-rating {
+  margin: 1rem 0;
+}
+.user-review-text p {
+  font-size: 1em;
+  padding-right: 5rem;
+}
+.user-rev-car > p.posted {
+  color: grey;
+  font-size: 0.9em;
+  margin-top: 1rem;
+  justify-content: end;
+}
+.user-rev-car-img,
+.user-rev-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-rev-img {
+  width: 300px;
+  height: 200px;
+}
+.user-rev-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+@media (max-width: 769px) {
+  .user-rev-img {
+    display: none;
+  }
+}

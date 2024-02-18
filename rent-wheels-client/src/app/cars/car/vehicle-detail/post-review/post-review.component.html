@@ -1,0 +1,37 @@
+<div class="modalInfo">
+  <i class="fa-solid fa-circle-xmark" (click)="postReviewModalClose()"></i>
+  <h3>Your Review</h3>
+  <p>Please share your experience with us.</p>
+  <form [formGroup]="review" (ngSubmit)="postReview()">
+    <div>
+      <label>Rating</label>
+      <div id="stars">
+        <ng-container *ngFor="let _ of iteration; let i = index">
+          <i
+            class="fa fa-star"
+            (click)="selectStar(i)"
+            [ngClass]="{ selected: i < selectedRating }"
+          ></i>
+        </ng-container>
+      </div>
+      <span *ngIf="review.touched && selectedRating === 0">
+        Apologies, but you have not provided a rating!</span
+      >
+    </div>
+    <div>
+      <label>Review</label>
+      <textarea
+        name="rev"
+        cols="30"
+        rows="10"
+        formControlName="text"
+      ></textarea>
+      <span *ngIf="!review.get('text')?.valid && review.get('text')?.touched"
+        >Please enter your review!</span
+      >
+    </div>
+    <input type="submit" value="Post" />
+    <span *ngIf="!review.valid && review.touched">Form is invalid!</span>
+  </form>
+</div>
+<div class="backdrop"></div>

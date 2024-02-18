@@ -1,0 +1,49 @@
+<section id="reviews">
+  <h2>Top Reviews</h2>
+  <p>Unforgettable moments await you with our exceptional customer service.</p>
+  <div class="scroller">
+    <div class="scroll">
+      <i
+        class="fa-solid fa-chevron-left"
+        (click)="scrollLeftReviews()"
+        #reviewL
+        id="revL"
+      ></i>
+      <i
+        class="fa-solid fa-chevron-right"
+        (click)="scrollRightReviews()"
+        #reviewR
+      ></i>
+    </div>
+  </div>
+  <div id="rev" #r>
+    <div class="review" *ngFor="let rev of reviews; let i = index">
+      <div class="usr-rev">
+        <div class="usr-rev-img">
+          <img
+            src="../../assets/img/users/{{ rev.userImageSrc }}"
+            [alt]="rev.userImageAlt"
+          />
+        </div>
+        <div class="usr-rev-cred">
+          <p class="usr-name">
+            {{ rev.full_name }}
+          </p>
+          <p class="usr-info">
+            <span>Reviews {{ rev.reviewCount }} &nbsp;&middot;&nbsp;</span>
+            <span>Joined {{ transformDate(rev.register_date) }}</span>
+          </p>
+        </div>
+      </div>
+      <div class="usr-rating">
+        <ng-container *ngFor="let rating of getStarsArray(iterations[i])">
+          <i class="fa-solid fa-star"></i>
+        </ng-container>
+      </div>
+      <div class="review-content">
+        <p>{{ rev.review }}</p>
+        <p>Posted - {{ transformDate(rev.rating_date) }}</p>
+      </div>
+    </div>
+  </div>
+</section>

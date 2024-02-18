@@ -1,0 +1,59 @@
+<footer>
+  <div id="footer">
+    <div id="footerLogo">
+      <img src="../../assets/img/logo-white.png" alt="Dark logo of the page." />
+    </div>
+    <div class="links">
+      <h4>Menu</h4>
+      <ul>
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li><a routerLink="cars">Cars</a></li>
+        <li>
+          <a routerLink="contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+    <div class="links">
+      <h4>Socials</h4>
+      <ul>
+        <li>
+          <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+        </li>
+        <li><a href="https://twitter.com/" target="_blank">Twitter</a></li>
+        <li>
+          <a href="https://sr-rs.facebook.com/" target="_blank">Facebook</a>
+        </li>
+      </ul>
+    </div>
+    <div id="subs">
+      <h4>Newsletter</h4>
+      <p>
+        Subscibe to our newsletter and be one of the first to rent our newest
+        Cars.
+      </p>
+      <form id="subEmail" [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+        <div>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter your email"
+            formControlName="email"
+          />
+          <input type="submit" value="SUBSCRIBE" />
+        </div>
+        <span
+          *ngIf="
+            !emailForm.get('email')?.valid && emailForm.get('email')?.touched
+          "
+          >Your email is invalid! Please use the full email format. For example:
+          test@test.com</span
+        >
+        <span class="succMessage" #succ></span>
+      </form>
+    </div>
+  </div>
+  <div id="copy">Copyright 2023 Rent Wheels. All Rights Reserved</div>
+</footer>

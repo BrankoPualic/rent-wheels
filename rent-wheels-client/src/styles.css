@@ -1,0 +1,210 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  transition: 0.6s;
+  list-style-type: none;
+  /* font-family: "Oswald", sans-serif; */
+  font-family: "Outfit", sans-serif;
+}
+:root {
+  --red: #c20000;
+  --dark-red: #800000;
+  --black: #282a35;
+  --white: #eae8e6;
+  --dark-white: #b5b4b3;
+  --darker-white: #424141;
+  background-color: var(--white);
+  scroll-behavior: smooth;
+  --text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  --box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.8);
+}
+.disabled_link {
+  background-color: var(--black) !important;
+  border: 1px solid var(--black) !important;
+  cursor: default !important;
+  color: var(--white) !important;
+}
+.red {
+  color: var(--red);
+}
+.notActive {
+  color: var(--darker-white) !important;
+  cursor: default !important;
+}
+.go-back {
+  color: var(--red);
+  text-decoration: underline;
+  font-size: 1.1em !important;
+  position: absolute;
+  top: 10px;
+  right: 15%;
+  cursor: pointer;
+}
+/* Loader */
+.custom-loader {
+  position: fixed;
+  top: 45%;
+  left: 48%;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: conic-gradient(#0000 10%, #c20000);
+  mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  animation: s3 1s infinite linear;
+  z-index: 9999;
+}
+@keyframes s3 {
+  to {
+    transform: rotate(1turn);
+  }
+}
+.white-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+  z-index: 9998;
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9998;
+}
+
+.modalInfo {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+}
+
+.fa-circle-xmark {
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.8em;
+  color: var(--red);
+}
+
+.modalInfo h3 {
+  font-size: 1.8em;
+  color: var(--red);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.modalInfo form {
+  width: 100%;
+}
+.modalInfo form div {
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+}
+.modalInfo form div input {
+  width: 100%;
+  margin: 0.25rem 0;
+  font-size: 1.1em;
+  padding: 0.5rem;
+}
+:is(.modalInfo form div) input[type="text"],
+input[type="password"],
+input[type="email"] {
+  border: 1px solid var(--black);
+  border-radius: 5px;
+}
+.modalInfo form div span,
+.modalInfo form > span {
+  color: var(--red);
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.modalInfo form .succ {
+  color: green !important;
+}
+.fa-eye,
+.fa-eye-slash {
+  position: absolute;
+  right: -2rem;
+  top: 2rem;
+  font-size: 1.3em;
+  color: var(--black);
+  cursor: pointer;
+}
+.modalInfo form > input {
+  border: 1px solid var(--red);
+  background-color: var(--red);
+  color: var(--white);
+  font-size: 1em;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  width: 8rem;
+  text-align: center;
+  margin: 2rem auto 1rem;
+  display: block;
+}
+.modalInfo form > input:disabled {
+  border: 1px solid var(--black);
+  background-color: var(--black);
+  cursor: default;
+}
+
+.modalInfo form > input:hover {
+  box-shadow: var(--box-shadow);
+}
+
+/* Scrollers */
+
+.scroller {
+  display: flex;
+  justify-content: space-between;
+}
+.scroll {
+  height: 2rem;
+  margin: 2rem 0 0.75rem;
+  width: 4rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2em;
+  align-items: center;
+}
+.scroll i {
+  cursor: pointer;
+}
+
+/* Star icon */
+.fa-star {
+  color: var(--red);
+  margin-right: 0.2rem;
+  font-size: 0.9em;
+}
+
+@media (max-width: 769px) {
+  .modalInfo {
+    width: 90vw;
+  }
+  .go-back {
+    top: -30px;
+  }
+}

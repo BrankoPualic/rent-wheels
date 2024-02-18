@@ -1,0 +1,19 @@
+#profile {
+  width: 100%;
+  margin-top: 175px;
+  margin-bottom: 5rem;
+}
+#profile-infos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70%;
+  margin: 0 auto;
+}
+@media (max-width: 1025px) {
+  #profile-infos {
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+  }
+}

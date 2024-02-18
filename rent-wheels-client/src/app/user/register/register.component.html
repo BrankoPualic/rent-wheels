@@ -1,0 +1,68 @@
+<div class="modalInfo">
+  <i class="fa-solid fa-circle-xmark" (click)="regModalClose()"></i>
+  <h3>Sign up</h3>
+  <form
+    [formGroup]="form"
+    (ngSubmit)="onRegSubmit()"
+    enctype="multipart/form-data"
+  >
+    <div>
+      <label>Full name</label>
+      <input
+        type="text"
+        name="full-name"
+        placeholder="Full name"
+        formControlName="name"
+      />
+      <span *ngIf="!form.get('name')?.valid && form.get('name')?.touched">
+        Input is invalid! Exemple: Branko Pualic
+      </span>
+    </div>
+    <div>
+      <label>Email address</label>
+      <input
+        type="email"
+        name="email"
+        placeholder="Your email address"
+        formControlName="email"
+      />
+      <span *ngIf="!form.get('email')?.valid && form.get('email')?.touched">
+        Your email is invalid! Please use the full email format. For example:
+        test@test.com
+      </span>
+    </div>
+    <div>
+      <label>Password</label>
+      <input
+        type="password"
+        name="password"
+        placeholder="Your password"
+        formControlName="password"
+        #pass
+      />
+      <i class="fa-regular fa-eye" (click)="seePassword(pass, icon)" #icon></i>
+      <span
+        *ngIf="!form.get('password')?.valid && form.get('password')?.touched"
+      >
+        Your password is invalid! Password must be at least 8 charactes long and
+        needs to have at least one uppercase letter and one number.
+      </span>
+    </div>
+    <div>
+      <label>Upload your image</label>
+      <input
+        type="file"
+        name="image"
+        id="uploadImage"
+        (change)="onFileChange($event)"
+      />
+      <span *ngIf="!form.valid && form.touched">
+        You must upload your profile picture.
+      </span>
+    </div>
+    <input type="submit" value="Sign up" [disabled]="!form.valid" />
+    <span #err></span>
+    <span class="succ" #succ></span>
+  </form>
+</div>
+<div class="backdrop"></div>

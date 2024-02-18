@@ -1,0 +1,75 @@
+.rentalActive {
+  color: green;
+}
+.rentalNotActive {
+  color: var(--red);
+}
+#latest {
+  display: flex;
+  flex-direction: column;
+}
+#latest h3 {
+  font-weight: 400;
+  font-size: 1.5em;
+}
+#all-latest-details {
+  display: flex;
+  flex-direction: row;
+}
+#latest-rental-car {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 1rem 0;
+}
+#latest-img {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#latest-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 3px solid var(--black);
+}
+#latest-rental-infos {
+  margin-left: 3rem;
+  padding-top: 0.5rem;
+}
+#latest-rental-infos p:nth-child(1) {
+  font-size: 1.4em;
+  font-weight: 500;
+  padding-top: 0;
+}
+#latest-rental-infos p {
+  padding: 0.75rem 0 0;
+  font-size: 1.1em;
+}
+#no-rentals {
+  margin-top: 5rem;
+  font-size: 1.2em;
+}
+@media (max-width: 1025px) {
+  #latest-img {
+    width: 150px;
+    height: 150px;
+  }
+}
+@media (max-width: 426px) {
+  #latest-rental-infos p {
+    font-size: 0.9em;
+  }
+  #latest h3 {
+    text-align: center;
+  }
+  #latest-rental-infos {
+    margin-left: 0;
+    text-align: center;
+  }
+  #latest-img {
+    display: none;
+  }
+}

@@ -1,0 +1,50 @@
+<div id="car-rating">
+  <div id="car-rating-heading">
+    <h3>
+      Rating: <span class="red">{{ avgRating }}</span>
+    </h3>
+    <a
+      [ngClass]="{ disabled_link: !isLoggedIn() }"
+      (click)="isLoggedIn() ? openPostingModal() : null"
+      >Your Review</a
+    >
+  </div>
+
+  <div id="car-reviews">
+    <div class="car-rev" *ngFor="let rev of ratings; let i = index">
+      <div class="car-rev-about">
+        <div class="car-rev-user">
+          <div class="car-rev-user-img">
+            <img
+              src="../../../../assets/img/users/{{ rev.image_src }}"
+              [alt]="rev.image_alt"
+            />
+          </div>
+          <div class="car-rev-user-name">
+            <p class="car-user-name">{{ rev.full_name }}</p>
+            <p class="car-usr-info">
+              <span>Joined {{ transformDate(rev.register_date) }}</span>
+            </p>
+          </div>
+        </div>
+        <div class="car-user-rating">
+          <ng-container *ngFor="let _ of getStarsArray(iterations[i])">
+            <i class="fa-solid fa-star"></i>
+          </ng-container>
+        </div>
+        <div class="car-user-post-date">
+          <p>Posted - {{ transformDate(rev.rating_date) }}</p>
+        </div>
+      </div>
+      <div class="car-rev-content">
+        <p>{{ rev.review }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="reviewModalVisible">
+  <app-post-review
+    (closeReviewModalEmitter)="modalClose($event)"
+    [carId]="carId"
+  ></app-post-review>
+</ng-container>

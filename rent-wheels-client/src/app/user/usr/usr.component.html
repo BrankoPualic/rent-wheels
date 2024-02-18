@@ -1,0 +1,19 @@
+<section id="profile" *ngIf="!showReviews && !showRentals">
+  <div id="profile-infos">
+    <app-user-infos
+      (openAllReviews)="showAllReviews($event)"
+      (openAllRentals)="showAllRentals($event)"
+    ></app-user-infos>
+    <app-latest-rental></app-latest-rental>
+  </div>
+</section>
+<ng-container *ngIf="showReviews">
+  <app-all-user-reviews
+    (goBackEmitter)="showProfilePage($event)"
+  ></app-all-user-reviews>
+</ng-container>
+<ng-container *ngIf="showRentals">
+  <app-all-user-rentals
+    (goBackEmitter)="showProfilePage($event)"
+  ></app-all-user-rentals>
+</ng-container>

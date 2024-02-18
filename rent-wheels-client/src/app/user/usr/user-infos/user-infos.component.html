@@ -1,0 +1,26 @@
+<div id="user-infos">
+  <div id="user-infos-img">
+    <img
+      src="../../../../assets/img/users/{{ user.image_src }}"
+      [alt]="user.image_alt"
+    />
+  </div>
+  <div id="user-infos-cred">
+    <p>{{ user.full_name }}</p>
+    <p>{{ user.email }}</p>
+    <p>Joined: {{ register_date }}</p>
+    <p>Reviews: {{ user.reviews }}</p>
+    <p>Average rating: {{ avg_rating }}</p>
+    <a
+      (click)="hasReviews ? openAllUserReviews() : false"
+      [ngClass]="{ notActive: !hasReviews }"
+      >Show Reviews <i _ngcontent-lki-c10="" class="fa-solid fa-arrow-right"></i
+    ></a>
+    <a
+      (click)="hasRental ? openAllUserRentals() : false"
+      [ngClass]="{ notActive: !hasRental }"
+      >Show Rental History
+      <i _ngcontent-lki-c10="" class="fa-solid fa-arrow-right"></i
+    ></a>
+  </div>
+</div>

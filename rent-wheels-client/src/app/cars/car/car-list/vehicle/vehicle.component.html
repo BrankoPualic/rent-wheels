@@ -1,0 +1,31 @@
+<div id="car-list">
+  <div class="one-car" *ngFor="let car of cars">
+    <div class="one-car-img">
+      <div class="one-car-mark">
+        <span *ngIf="car.new_car">NEW</span
+        ><span *ngIf="car.new_car && car.recommended">, </span>
+        <span *ngIf="car.recommended">RECOMMENDED</span>
+      </div>
+      <img
+        src="../../../../assets/img/cars/{{ car.carImageSrc }}"
+        [alt]="car.carImageAlt"
+      />
+    </div>
+    <div class="one-car-name">
+      <p>{{ car.heading }}</p>
+    </div>
+    <div class="one-car-spec">
+      <p>
+        Model: {{ car.brand_name }}, {{ car.type_name }},
+        {{ car.transmission_type }}
+      </p>
+      <p>Location: {{ car.city }}</p>
+      <p>Price: {{ car.price }}&euro; per hour</p>
+    </div>
+    <div class="one-car-link">
+      <a (click)="carSelected(car.car_id)"
+        >See more <i class="fa-solid fa-arrow-right"></i
+      ></a>
+    </div>
+  </div>
+</div>

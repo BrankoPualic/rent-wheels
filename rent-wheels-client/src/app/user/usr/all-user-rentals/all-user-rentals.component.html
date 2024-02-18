@@ -1,0 +1,35 @@
+<div id="all-rentals">
+  <h3>Your Rental History</h3>
+  <a class="go-back" (click)="goBack()"
+    >Back <i class="fa-solid fa-arrow-right"></i
+  ></a>
+  <div class="rental" *ngFor="let rental of rentals; let i = index">
+    <div class="all-latest-details">
+      <div class="latest-rental-car">
+        <div class="latest-img">
+          <img
+            src="../../../../assets/img/cars/{{ rental.image_src }}"
+            [alt]="rental.image_alt"
+          />
+        </div>
+      </div>
+      <div class="latest-rental-infos">
+        <p>{{ rental.heading }}</p>
+        <p>Location: {{ rental.city }}</p>
+        <p>Start: {{ start_date[i] }}</p>
+        <p>End: {{ end_date[i] }}</p>
+        <p>Total cost: {{ rental.total_cost }} &euro;</p>
+        <p>
+          Status:
+          <span
+            [ngClass]="{
+              rentalActive: status[i] === 'active',
+              rentalNotActive: status[i] === 'not-active'
+            }"
+            >{{ status[i] | uppercase }}</span
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

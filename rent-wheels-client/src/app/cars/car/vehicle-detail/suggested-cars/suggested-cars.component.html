@@ -1,0 +1,21 @@
+<div id="car-details-suggestion">
+  <h3>We Suggest</h3>
+  <div id="car-details-list" *ngIf="sameTypeCars.length > 0">
+    <div
+      class="car-details-car"
+      *ngFor="let car of sameTypeCars"
+      (click)="carSelected(car.car_id)"
+    >
+      <div class="car-detail-car-img">
+        <img
+          src="../../../../assets/img/cars/{{ car.image_src }}"
+          [alt]="car.image_alt"
+        />
+      </div>
+      <p>{{ car.heading }}</p>
+    </div>
+  </div>
+  <p *ngIf="sameTypeCars.length === 0">
+    Sorry, but currently there are no cars of the same type.
+  </p>
+</div>

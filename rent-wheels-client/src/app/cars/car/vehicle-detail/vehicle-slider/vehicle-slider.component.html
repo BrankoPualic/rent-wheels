@@ -1,0 +1,20 @@
+<div id="car-details-slider">
+  <div id="car-slider-main">
+    <img
+      src="../../../../../assets/img/cars/{{ selectedImageSrc }}"
+      [alt]="selectedImageAlt"
+    />
+  </div>
+  <div id="other-images">
+    <div
+      class="slider-images"
+      *ngFor="let image of slides; let i = index"
+      (click)="changeImage(i)"
+    >
+      <img
+        src="../../../../../assets/img/cars/{{ image.image_src }}"
+        [alt]="image.image_alt"
+      />
+    </div>
+  </div>
+</div>

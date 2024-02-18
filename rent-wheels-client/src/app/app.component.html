@@ -1,0 +1,18 @@
+<app-header
+  (openRegister)="regModalOpen($event)"
+  (openLogin)="loginModalOpen($event)"
+></app-header>
+<div id="wrapper">
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+</div>
+<ng-container *ngIf="loginModalVisible">
+  <app-login (closeLoginModalEmitter)="modalClose($event)"></app-login>
+</ng-container>
+<ng-container *ngIf="regModalVisible">
+  <app-register (closeRegModalEmitter)="modalClose($event)"></app-register>
+</ng-container>
+<ng-container *ngIf="pageLoading">
+  <div class="custom-loader"></div>
+  <div class="white-backdrop"></div>
+</ng-container>

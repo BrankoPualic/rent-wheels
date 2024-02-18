@@ -1,0 +1,48 @@
+.fa-star.selected {
+  color: var(--red) !important;
+}
+.fa-star {
+  color: var(--black) !important;
+  cursor: pointer;
+  transition: 0s;
+  font-size: 0.9em;
+  margin: 0 0.5rem 0 0;
+}
+.modalInfo h3 {
+  margin-bottom: 1rem;
+}
+.modalInfo > p {
+  text-align: center;
+  width: 100%;
+  font-size: 0.9em;
+  margin-bottom: 2rem;
+}
+form {
+  width: 100%;
+  padding: 0 1rem;
+}
+form > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+form label {
+  margin: 0 0 0.5rem;
+}
+form div:nth-child(1) {
+  margin-bottom: 1rem;
+}
+#stars {
+  margin: 0;
+}
+.modalInfo form div span {
+  margin-bottom: 0;
+}
+.modalInfo form > span {
+  width: 100%;
+  text-align: center;
+}
+textarea {
+  font-size: 1em;
+  padding: 0.25rem;
+}
